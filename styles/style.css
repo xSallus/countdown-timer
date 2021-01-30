@@ -1,0 +1,124 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'digit';
+    src: url("../fonts/ds-digit.ttf");
+    font-weight: normal;
+}
+
+:root {
+    --background: #6d6d6d;
+    --white: #fff;
+    --lt-black:  rgba(0, 0, 0, .5);
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background: var(--background);
+    color: var(--white);
+
+    max-height: 100vh;
+    max-width: 100vw;
+}
+
+.clock {
+    font-size: 20pt;
+    margin: 15rem auto;
+    width: 50vw;
+    height: auto;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.container {
+    display: block;
+    align-items: center;
+
+    text-align: center;
+    
+    padding: 0.5rem;
+
+    border-radius: 6px;
+    background:var(--lt-black);
+    
+    height: 7rem;
+    width: 7rem;
+
+    margin: 0;  
+}
+
+.days, .hrs, .mins, .secs {
+    font-size: 3.5rem;
+    font-family: 'digit', monospace;
+}
+
+.holder {
+    font-size: 1rem;
+    font-family: monospace;
+}
+
+@media (max-width: 31.875rem) {
+    .clock {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "tl tr",
+                             "bl br";
+        gap: 5px;
+
+        margin-top: 10vh;
+        margin-bottom: 0;
+
+        height: 14.5rem;
+        width: 14.5rem;
+    }
+
+    .clock:nth-child(1) {
+        grid-area: "tl";
+    }
+    .clock:nth-child(2) {
+        grid-area: "tr";
+    }
+    .clock:nth-child(3) {
+        grid-area: "bl";
+    }
+    .clock:nth-child(4) {
+        grid-area: "br";
+    }
+}
+
+@media (max-width: 15.9375rem) {
+    .clock {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        grid-template-areas: "tl",
+                             "tr",
+                             "bl",
+                             "br";
+        gap: 5px;
+
+        margin-top: 5vh;
+        
+        height: 1vh;
+        width: 8rem;
+    }
+
+    .clock:nth-child(1) {
+        grid-area: "tl";
+    }
+    .clock:nth-child(2) {
+        grid-area: "tr";
+    }
+    .clock:nth-child(3) {
+        grid-area: "bl";
+    }
+    .clock:nth-child(4) {
+        grid-area: "br";
+    }
+}
