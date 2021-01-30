@@ -22,4 +22,4 @@ function start(x) {
 
 }
 
-start(5)
+start(1500)
