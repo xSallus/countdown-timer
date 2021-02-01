@@ -7,9 +7,22 @@
 }
 
 :root {
+    /*My Colors*/
     --background: #6d6d6d;
-    --white: #fff;
     --lt-black:  rgba(0, 0, 0, .5);
+
+    /*Primary Colors*/
+    --grayish-blue: hsl(237, 18%, 59%);
+    --soft-red: hsl(345, 95%, 68%);
+
+    /*Neutral Colors*/
+    --white: hsl(0, 0%, 100%);
+    --desaturated-blue: hsl(236, 21%, 26%);
+    --dark-blue: hsl(235, 16%, 14%);
+    --very-dark-blue: hsl(234, 17%, 12%);
+
+    /*Typography*/
+    --red-hat: 'Red Hat Text';
 }
 
 * {
@@ -19,16 +32,27 @@
 }
 
 body {
-    background: var(--background);
+    background: var(--very-dark-blue) url('../images/pattern-hills.svg') no-repeat;
+    background-position-y: 400px;
     color: var(--white);
 
     max-height: 100vh;
     max-width: 100vw;
 }
 
+header {
+    font-family: var(--red-hat);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: 7rem auto 6rem;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+}
+
 .clock {
     font-size: 20pt;
-    margin: 15rem auto;
+    margin: 0  auto 3rem;
     width: 50vw;
     height: auto;
     display: flex;
@@ -44,7 +68,7 @@ body {
     padding: 0.5rem;
 
     border-radius: 6px;
-    background:var(--lt-black);
+    background: var(--desaturated-blue);
     
     height: 7rem;
     width: 7rem;
@@ -53,16 +77,48 @@ body {
 }
 
 .days, .hrs, .mins, .secs {
-    font-size: 3.5rem;
+    font-size: 6rem;
     font-family: 'digit', monospace;
+    color: var(--soft-red);
+    padding-bottom: .8rem;
 }
 
 .holder {
-    font-size: 1rem;
-    font-family: monospace;
+    font-size: .875rem;
+    font-family: var(--red-hat);
+    color: var(--grayish-blue);
+}
+
+footer {
+    display: flex;
+    justify-content: space-evenly;
+
+    max-width: 20%;
+    margin: 10rem auto auto; 
+}
+
+.icons {
+    padding: 0;
+    height: 1.5rem;
+    width: 1.5rem;
+    fill: var(--grayish-blue);
+}
+
+.icons:hover {
+    fill: var(--soft-red);
 }
 
 @media (max-width: 31.875rem) {
+    header {
+        word-wrap: break-word;
+        margin: 4rem auto 2rem;
+        font-size: 1rem;
+    }
+
+    body {
+        background-position: 30% 150%;
+    }
+
     .clock {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -89,6 +145,20 @@ body {
     }
     .clock:nth-child(4) {
         grid-area: "br";
+    }
+
+    .days, .hrs, .mins, .secs {
+        font-size: 6rem;
+        padding-bottom: 0;
+    }
+
+    .holder {
+        font-size: .8rem;
+    }
+
+    footer {
+        margin-top: 3rem;
+        max-width: 50%;
     }
 }
 
